@@ -1,38 +1,92 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Montserrat, sans-serif;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card_container{
+margin: 1400px;
+margin: 0 auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card_wrapper{
+  display: inline-block;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card_case{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.card_item_front{
+  display: inline-block;
+  background-image: url(../public/mastercard_front.png);
+  box-shadow: 2px 4px 8px rgb(100, 100, 171);
+  border-radius: 30px;
+  padding: 60px 40px;
+  margin: 0 auto;
+  max-width: 250px;
+  max-height: 100px;
+  margin-bottom: 30px;
+  margin-right: 50px;
+  position: relative;
+  
+}
+
+.card_number{
+  margin-top: 50px;
+width: 400px;
+color: white;
+font-size: 30px;
+
+}
+
+.card_info{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+
+}
+
+.card_item_back{
+  display: inline-block;
+  background-image: url(../public/mastercard_back.png);
+  box-shadow: 2px 4px 8px rgb(100, 100, 171);
+  border-radius: 30px;
+  padding: 60px 40px;
+  max-width: 550px;
+  max-height: 100px;
+  margin-bottom: 30px;
+}
+.card_info-second{
+  width: 250px;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+ }
+.card_date{
+  margin-top: 100px;
+  margin-right: 100px;
+  align-items: start;
+
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.card_cvc{
+  margin-top: 100px;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.image{
+  position: absolute;
+  top:20%;
+  height:50px;
+  width: 60px;
+}
+
+.card_logo{
+  position: absolute;
+  width: 50px;
+  height:30px;
+  right:10%;
+  top:-40%;
 }
