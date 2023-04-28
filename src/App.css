@@ -3,23 +3,40 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: Montserrat, sans-serif;
-
 }
 
-.card_container{
-margin: 1400px;
-margin: 0 auto;
+.card_container {
+  margin: 1400px;
+  margin: 0 auto;
+  align-items: center;
+  padding: 20px;
 }
-
-.card_wrapper{
+.card_move {
+  display: flex;
+  justify-content: space-between;
+}
+.button_plus {
+  border: none;
+  background-color: transparent;
+}
+.card_plus {
+  width: 30px;
+  border-radius: 4px;
+  position: absolute;
+  left: 53%;
+  top: 10%;
+}
+.card_wrapper {
   display: inline-block;
+  margin-left: 100px;
+  padding-top: 30px;
 }
-.card_case{
+.card_case {
   display: flex;
 }
-.card_item_front{
+.card_item_front {
   display: inline-block;
-  background-image: url(../public/mastercard_front.png);
+  background-image: url(../src/assets/mastercard_front.png);
   box-shadow: 2px 4px 8px rgb(100, 100, 171);
   border-radius: 30px;
   padding: 60px 40px;
@@ -29,27 +46,24 @@ margin: 0 auto;
   margin-bottom: 30px;
   margin-right: 50px;
   position: relative;
-  
 }
 
-.card_number{
+.card_number {
   margin-top: 50px;
-width: 400px;
-color: white;
-font-size: 30px;
-
+  width: 400px;
+  color: white;
+  font-size: 30px;
 }
 
-.card_info{
+.card_info {
   display: flex;
   flex-direction: row;
-  justify-content:space-between;
-
+  justify-content: space-between;
 }
 
-.card_item_back{
+.card_item_back {
   display: inline-block;
-  background-image: url(../public/mastercard_back.png);
+  background-image: url(../src/assets/mastercard_back.png);
   box-shadow: 2px 4px 8px rgb(100, 100, 171);
   border-radius: 30px;
   padding: 60px 40px;
@@ -57,13 +71,13 @@ font-size: 30px;
   max-height: 100px;
   margin-bottom: 30px;
 }
-.card_info-second{
+.card_info-second {
   width: 250px;
   display: flex;
   flex-direction: row;
-  justify-content:space-between;
- }
-.card_date{
+  justify-content: space-between;
+}
+.card_date {
   margin-top: 100px;
   margin-right: 100px;
   align-items: start;
@@ -71,22 +85,22 @@ font-size: 30px;
   color: white;
 }
 
-.card_cvc{
+.card_cvc {
   margin-top: 100px;
   color: white;
 }
 
-.image{
+.image {
   position: absolute;
-  top:20%;
-  height:50px;
+  top: 20%;
+  height: 50px;
   width: 60px;
 }
 
-.card_logo{
+.card_logo {
   position: absolute;
   width: 50px;
-  height:30px;
-  right:10%;
-  top:-40%;
+  height: 30px;
+  right: 10%;
+  top: -40%;
 }
