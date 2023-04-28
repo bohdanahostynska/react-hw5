@@ -15,11 +15,7 @@ export const CreditCard = () => {
   console.log(addCard);
   console.log(data);
 
-  return (
-    <div>
-      <p>Hello</p>
-    </div>
-  );
+
 };
 
 function clearNumber(value = "") {

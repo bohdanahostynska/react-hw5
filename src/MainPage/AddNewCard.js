@@ -42,9 +42,10 @@ export default function AddNewCard() {
   };
 
   return (
-    <div>
-      <div className="New_card">
-        <h3 className="card_title">Create a new card</h3>
+    <div className="card_container"> 
+         <div className="card_wrapper">
+         <h3 className="card_title">Create a new card</h3>
+     <div className="card_item_front-mod"><></></div> 
         <CreditCard
           data={data}
           number={data.number}
@@ -55,13 +56,13 @@ export default function AddNewCard() {
         />
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <small>Name on card:</small>
+            <small>Full name:</small>
 
             <input
               type="text"
               name="user_name"
               className="form-control"
-              placeholder="Name"
+              placeholder="John Snow"
               pattern="[a-z A-Z-]+"
               required
               onChange={handleInputChange}
@@ -75,7 +76,7 @@ export default function AddNewCard() {
               type="tel"
               name="number"
               className="form-control"
-              placeholder="Card Number"
+              placeholder="00000000000000"
               pattern="[\d| ]{16,22}"
               maxLength="19"
               required
@@ -91,7 +92,7 @@ export default function AddNewCard() {
               type="tel"
               name="expiry_date"
               className="form-control"
-              placeholder="Valid Thru"
+              placeholder="00/00"
               pattern="\d\d/\d\d"
               required
               onChange={handleInputChange}
@@ -105,7 +106,7 @@ export default function AddNewCard() {
               type="tel"
               name="cvc"
               className="form-control"
-              placeholder="CVC"
+              placeholder="123"
               pattern="\d{3}"
               required
               onChange={handleInputChange}

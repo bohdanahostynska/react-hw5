@@ -11,7 +11,6 @@ export function MainTask() {
         url={CARDS_BASE_URL}
         getDataUrl={(cards) => <YourCards data={cards}/>}
       />
-      <AddNewCard/>
     </div>
   );
 }

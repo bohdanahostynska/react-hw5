@@ -11,6 +11,7 @@ body {
   align-items: center;
   padding: 20px;
 }
+
 .card_move {
   display: flex;
   justify-content: space-between;
@@ -31,9 +32,11 @@ body {
   margin-left: 100px;
   padding-top: 30px;
 }
+
 .card_case {
   display: flex;
 }
+
 .card_item_front {
   display: inline-block;
   background-image: url(../src/assets/mastercard_front.png);
@@ -45,6 +48,19 @@ body {
   max-height: 100px;
   margin-bottom: 30px;
   margin-right: 50px;
+  position: relative;
+}
+.card_item_front-mod {
+  display: inline-block;
+  background-image: url(../src/assets/mastercard_front.png);
+  box-shadow: 2px 4px 8px rgb(100, 100, 171);
+  border-radius: 30px;
+  padding: 60px 40px;
+  margin: 0 auto;
+  width: 250px;
+  height: 70px;
+  margin-bottom: 30px;
+
   position: relative;
 }
 
