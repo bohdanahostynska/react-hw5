@@ -1,6 +1,5 @@
 import YourCards from "./YourCards";
 import UseFetch from "./UseFetch";
-import AddNewCard from "./AddNewCard";
 
 const CARDS_BASE_URL =
   "https://my.api.mockaroo.com/cards/123.json?key=778301b0";

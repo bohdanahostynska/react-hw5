@@ -6,13 +6,14 @@ import AddNewCard from "./AddNewCard";
 
 export const YourCards = (props) => {
   const { data } = props.data;
+
   return (
+    <>
     <div className="card_container">
       <div className="card_move">
         <h2>Your Cards</h2>
-        <button className="button_plus">
-          
-          <img className="card_plus" src={plus} alt="plus"/><AddNewCard/>
+        <button className="button_plus">    
+          <img src={plus} alt="plus"/><AddNewCard/>
         </button>
       </div>
       <div className="card_wrapper">
@@ -42,6 +43,7 @@ export const YourCards = (props) => {
           })}
       </div>
     </div>
+        </>
   );
 };
 
