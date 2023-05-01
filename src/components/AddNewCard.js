@@ -1,6 +1,6 @@
 import React from "react";
 import { CreditCard } from "./CreditCard";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import chip from "../assets/chip.png";
 import master_logo from "../assets/master_logo.png";
 import {
@@ -10,30 +10,15 @@ import {
 } from "./CreditCard";
 export default function AddNewCard() {
   const [data, setData] = useState({});
-  const [newData, setNewData] = useState([]);
 
-  //     const card = {
-  //       user_name: "",
-  //       data: [{}],
-  //       issuer: "",
-  //     };
   let issuer;
 
   const handleAddButtonClick = () => {
     const newCard = {
-      card: newData,
+      card:'',
       quantity: 1,
     };
-
-    setData(newCard);
-    setNewData("");
-  };
-  console.log(newData);
-  console.log(data);
-
-  //     const addCard = (newCard) => {
-  //       setData((prev) => [...prev, newCard]);
-  //     };
+  }
   function handleCallback({ issuer }, isValid) {
     if (isValid) {
       setData({ issuer });
@@ -59,13 +44,12 @@ export default function AddNewCard() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    let toAdd = newData;
-    alert("You have added a card");
-    setNewData((prevNewData) => [...prevNewData, toAdd]);
+//     let toAdd = newData;
+//     alert("You have added a card");
+//     setNewData((prevNewData) => [...prevNewData, toAdd]);
   };
 
-  const isNewDataEmpty = newData.length === 0;
+//   const isNewDataEmpty = newData.length === 0;
 
   return (
     <>
@@ -148,15 +132,15 @@ export default function AddNewCard() {
           </div>
           <input type="hidden" name="issuer" value={issuer} />
           <div className="card-actions">
-            <hr />
+            {/* <hr />
             {!isNewDataEmpty ? (
               newData.forEach((newData) => {
                 <newData title={newData} />;
               })
             ) : (
               <span></span>
-            )}
-            <button className="form-button"onClick={() => handleAddButtonClick()}>Add card</button>
+            )} */}
+            <button className="form-button" onClick={handleAddButtonClick} >Add card</button>
           </div>
         </form>
       </div>

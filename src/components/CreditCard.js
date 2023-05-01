@@ -2,20 +2,16 @@ import { useState } from "react";
 
 export const CreditCard = () => {
     const [data, setData] = useState([]);
-    const card = {
-      user_name: "",
-      data: [{}],
-      issuer: "",
-    };
-  
+  // const card ={
+  //   user_name:'',
+  //   data:[{}]
+  // }
     const addCard = (newCard) => {
       setData((prev) => [...prev, newCard]);
+      return {newCard}
     };
-    console.log(card);
     console.log(addCard);
     console.log(data);
-  
-  
   };
 
 function clearNumber(value = "") {

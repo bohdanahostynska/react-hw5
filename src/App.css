@@ -12,6 +12,12 @@ body {
   padding: 20px;
 
 }
+.header-ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
 /* 
 .card_container-new {
   margin: 1400px;
@@ -77,9 +83,10 @@ body {
 }
 
 .card_number {
+  display: inline-block;
   margin-top: 50px;
   width: 400px;
-  color: white;
+  color: rgb(36, 34, 34);
   font-size: 30px;
 }
 
@@ -172,4 +179,10 @@ border-radius: 10px;
   height:40px;
   border-radius: 10px;
   color: beige;
+}
+
+.links-img {
+  display: inline-block;
+  height: 15px;
+  width: 20px;
 }
