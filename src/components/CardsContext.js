@@ -15,15 +15,15 @@ export const DataContext = (props) => {
         throw new Error({ message: "Something went wrong..." });
       })
       .then((json) => setData(json))
-      .catch((error) => setError(error.message))
+      .catch((error) => setError(error.message));
   }, []);
 
   const addCard = (newCard) => {
-    setData(prev => [...prev, newCard])
-  }
-  
+    setData((prev) => [...prev, newCard]);
+  };
+console.log(addCard);
   return (
-    <CardsContext.Provider value = {{ data, error }}>
+    <CardsContext.Provider value={{ data, error }}>
       {props.children}
     </CardsContext.Provider>
   );

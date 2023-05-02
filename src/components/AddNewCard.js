@@ -1,149 +1,71 @@
-import React from "react";
-import { CreditCard } from "./CreditCard";
 import { useState } from "react";
-import chip from "../assets/chip.png";
-import master_logo from "../assets/master_logo.png";
-import {
-  formatCreditCardNumber,
-  formatCVC,
-  formatExpirationDate,
-} from "./CreditCard";
-export default function AddNewCard() {
-  const [data, setData] = useState({});
 
-  let issuer;
+export const AddNewCard = () => {
+    const [cardData, setCardData] = useState([]);
 
-  const handleAddButtonClick = () => {
-    const newCard = {
-      card:'',
-      quantity: 1,
-    };
+    function addCard(newCard) {
+      setCardData((prev) => [...prev, newCard]);
+    return { newCard };
   }
-  function handleCallback({ issuer }, isValid) {
-    if (isValid) {
-      setData({ issuer });
-    }
-  }
-
-  const handleInputFocus = ({ target }) => {
-    setData({
-      focused: target.name,
-    });
+    console.log(addCard);
+    console.log(cardData);
   };
 
-  const handleInputChange = ({ target }) => {
-    if (target.name === "number") {
-      target.value = formatCreditCardNumber(target.value);
-    } else if (target.name === "expiry_date") {
-      target.value = formatExpirationDate(target.value);
-    } else if (target.name === "cvc") {
-      target.value = formatCVC(target.value);
-    }
-
-    setData({ [target.name]: target.value });
-  };
-
-  const handleSubmit = (e) => {
-//     let toAdd = newData;
-//     alert("You have added a card");
-//     setNewData((prevNewData) => [...prevNewData, toAdd]);
-  };
-
-//   const isNewDataEmpty = newData.length === 0;
-
-  return (
-    <>
-      {" "}
-      <div className="card_wrapper">
-        <h3 className="card_title-new">Create a new card</h3>
-        <div className="card_item_front-mod">
-        <img className="image-clone" src={chip} alt="img-img" />
-        <img className="card_logo-clone" src={master_logo} alt="img" /> </div>
-        {/* {newData.map((item)=>{ 
-            return(
-                  <div key = {item.id}>{item}</div>)
-             } )} */}
-        <CreditCard
-          data={data}
-          number={data.number}
-          user_name={data.user_name}
-          expiry_date={data.expiry_date}
-          cvv={data.cvc}
-          callback={handleCallback}
-        />
-        <form onSubmit={handleSubmit}>
-          <div className="card-form">
-            <small>Full name:</small>
-
-            <input
-              type="text"
-              name="user_name"
-              className="card-control"
-              placeholder="John Snow"
-              pattern="[a-z A-Z-]+"
-              required
-              onChange={handleInputChange}
-              onFocus={handleInputFocus}
-            />
-          </div>
-          <div className="card-form">
-            <small>Card Number:</small>
-
-            <input
-              type="tel"
-              name="number"
-              className="card-control"
-              placeholder="00000000000000"
-              pattern="[\d| ]{16,22}"
-              maxLength="19"
-              required
-              onChange={handleInputChange}
-              onFocus={handleInputFocus}
-            />
-          </div>
-
-          <div className="card-form">
-            <small>Expiration Date:</small>
-
-            <input
-              type="tel"
-              name="expiry_date"
-              className="card-control"
-              placeholder="00/00"
-              pattern="\d\d/\d\d"
-              required
-              onChange={handleInputChange}
-              onFocus={handleInputFocus}
-            />
-          </div>
-          <div className="card-form">
-            <small>CVC:</small>
-
-            <input
-              type="tel"
-              name="cvc"
-              className="card-control"
-              placeholder="123"
-              pattern="\d{3}"
-              required
-              onChange={handleInputChange}
-              onFocus={handleInputFocus}
-            />
-          </div>
-          <input type="hidden" name="issuer" value={issuer} />
-          <div className="card-actions">
-            {/* <hr />
-            {!isNewDataEmpty ? (
-              newData.forEach((newData) => {
-                <newData title={newData} />;
-              })
-            ) : (
-              <span></span>
-            )} */}
-            <button className="form-button" onClick={handleAddButtonClick} >Add card</button>
-          </div>
-        </form>
-      </div>
-    </>
-  );
+function clearNumber(value = "") {
+  return value.replace(/\D+/g, "");
 }
+
+export function formatCreditCardNumber(value) {
+  if (!value) {
+    return value;
+  }
+
+  const issuer = value;
+  const clearValue = clearNumber(value);
+  let nextValue;
+
+  switch (issuer) {
+    case "mastercard":
+      nextValue = `${clearValue.slice(0, 4)} ${clearValue.slice(
+        4,
+        10
+      )} ${clearValue.slice(10, 15)}`;
+      break;
+    case "visa":
+      nextValue = `${clearValue.slice(0, 4)} ${clearValue.slice(
+        4,
+        10
+      )} ${clearValue.slice(10, 14)}`;
+      break;
+    default:
+      nextValue = `${clearValue.slice(0, 4)} ${clearValue.slice(
+        4,
+        8
+      )} ${clearValue.slice(8, 12)} ${clearValue.slice(12, 19)}`;
+      break;
+  }
+
+  return nextValue.trim();
+}
+export function formatExpirationDate(value) {
+    const clearValue = clearNumber(value);
+  
+    if (clearValue.length >= 3) {
+      return `${clearValue.slice(0, 2)}/${clearValue.slice(2, 4)}`;
+    }
+  
+    return clearValue;
+  }
+export function formatCVC(value, prevValue, allValues = {}) {
+  const clearValue = clearNumber(value);
+  let maxLength = 3;
+
+  if (allValues.number) {
+    const issuer = allValues.number;
+    console.log(issuer)
+  }
+
+  return clearValue.slice(0, maxLength);
+}
+
+

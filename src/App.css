@@ -6,25 +6,16 @@ body {
 }
 
 .card_container {
-  margin: 1400px;
+  max-width: 1400px;
   margin: 0 auto;
-  align-items: center;
   padding: 20px;
-
 }
 .header-ul {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-
 }
-/* 
-.card_container-new {
-  margin: 1400px;
-  margin: 0 auto;
-  align-items: center;
-  padding: 20px;
-} */
+
 .card_move {
   display: flex;
   justify-content: space-between;
@@ -32,16 +23,16 @@ body {
 
 .button_plus {
   width: 60px;
-  height:60px;
+  height: 60px;
   border: none;
   background-color: transparent;
   border-radius: 4px;
-  position: absolute; 
-  left: 53%;
-  top: 10%;
 }
 .card_wrapper {
   display: inline-block;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: center;
   margin-left: 100px;
   padding-top: 30px;
 }
@@ -131,9 +122,9 @@ body {
   height: 50px;
   width: 60px;
 }
-.image-clone{
+.image-clone {
   position: absolute;
-  left:20px;
+  left: 20px;
   top: 20%;
   height: 50px;
   width: 60px;
@@ -146,37 +137,33 @@ body {
   right: 10%;
   top: -40%;
 }
-.card_logo-clone{
+.card_logo-clone {
   position: absolute;
   width: 50px;
   height: 30px;
   right: 10%;
-  top: 70%; 
-
-  
+  top: 70%;
 }
-.card-form{
-   color: blue;
-   display: flex;
-   flex-direction: column;
-   margin-bottom: 10px;
-   
+.card-form {
+  color: blue;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
-.card-name{
-border-radius: 10px;
-
+.card-name {
+  border-radius: 10px;
 }
 
-.card-control{
-  background-color:  rgb(164, 164, 185);
+.card-control {
+  background-color: rgb(164, 164, 185);
   border-radius: 10px;
   padding: 8px;
 }
 
-.form-button{
-  background-color:  rgb(54, 54, 114);
-  width:350px;
-  height:40px;
+.form-button {
+  background-color: rgb(54, 54, 114);
+  width: 350px;
+  height: 40px;
   border-radius: 10px;
   color: beige;
 }
