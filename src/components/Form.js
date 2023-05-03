@@ -9,16 +9,16 @@ import {
   formatExpirationDate,
 } from "../helpers/functions";
 
-export const Card = ({numbers, user_name}) => {
+export const Card = ({ numbers, user_name }) => {
   return (
     <>
       <div className="card_wrapper">
-         <h3 className="card_title-new">My card</h3>
+        <h3 className="card_title-new">My card</h3>
         <div className="card_item_front">
           <img className="image-clone" src={chip} alt="img-img" />
           <img className="card_logo" src={master_logo} alt="img" />
           <p className="card_number">{numbers}</p>
-          <p className="user_name">{user_name}</p> 
+          <p className="user_name">{user_name}</p>
         </div>
       </div>
     </>
@@ -26,7 +26,6 @@ export const Card = ({numbers, user_name}) => {
 };
 
 export function Form() {
-
   const [cardData, setCardData] = useState({});
   const { addCard } = useContext(CardsContext);
   let type;
@@ -44,20 +43,19 @@ export function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-     addCard({ user_name: "", numbers: "", expiry_date: "", cvv: "" });   
-     
-  }
+    addCard({ user_name: "", numbers: "", expiry_date: "", cvv: "" });
+  };
 
   return (
     <div>
       <>
-      < Card
+        <Card
           data={cardData}
           numbers={cardData.numbers}
           user_name={cardData.user_name}
           expiry_date={cardData.expiry_date}
           cvv={cardData.cvc}
-          />
+        />
         <form onSubmit={handleSubmit}>
           <div className="card-form">
             <small>Full name:</small>

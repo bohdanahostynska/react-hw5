@@ -3,8 +3,7 @@ import React, { useEffect, useState, createContext } from "react";
 export const CardsContext = createContext();
 
 export const DataContext = (props) => {
-
-   const [cardData, setCardData] = useState([]);
+  const [cardData, setCardData] = useState([]);
 
   const [error, setError] = useState(null);
 
@@ -23,9 +22,9 @@ export const DataContext = (props) => {
   const addCard = (newCard) => {
     setCardData((prev) => [...prev, newCard]);
   };
-console.log(addCard);
+  console.log(addCard);
   return (
-    <CardsContext.Provider value={{cardData, error, addCard }}>
+    <CardsContext.Provider value={{ cardData, error, addCard }}>
       {props.children}
     </CardsContext.Provider>
   );
