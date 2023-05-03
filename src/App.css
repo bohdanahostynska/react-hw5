@@ -9,6 +9,8 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   padding: 20px;
+  display:flex;
+  flex-direction:row;
 }
 .header-ul {
   display: flex;
@@ -35,11 +37,7 @@ body {
   align-items: center;
   margin-left: 100px;
   padding-top: 30px;
-}
-.card_wrapper-new {
-  display: inline-block;
-  margin-left: 100px;
-  padding-top: 30px;
+  position:relative;
 }
 
 .card_case {
@@ -75,12 +73,15 @@ body {
 
 .card_number {
   display: inline-block;
+  color: white;
   margin-top: 50px;
   width: 400px;
-  color: rgb(36, 34, 34);
-  font-size: 30px;
+  font-size: 20px;
 }
 
+.user_name{
+  color: azure;
+}
 .card_info {
   display: flex;
   flex-direction: row;
@@ -135,15 +136,9 @@ body {
   width: 50px;
   height: 30px;
   right: 10%;
-  top: -40%;
+  bottom:10%;
 }
-.card_logo-clone {
-  position: absolute;
-  width: 50px;
-  height: 30px;
-  right: 10%;
-  top: 70%;
-}
+
 .card-form {
   color: blue;
   display: flex;
@@ -155,12 +150,14 @@ body {
 }
 
 .card-control {
+  max-width: 500px;
   background-color: rgb(164, 164, 185);
   border-radius: 10px;
   padding: 8px;
 }
 
 .form-button {
+  align-items: center;
   background-color: rgb(54, 54, 114);
   width: 350px;
   height: 40px;

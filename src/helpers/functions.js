@@ -1,15 +1,11 @@
-import { useState } from "react";
 
-export const AddNewCard = () => {
-    const [cardData, setCardData] = useState([]);
 
-    function addCard(newCard) {
-      setCardData((prev) => [...prev, newCard]);
-    return { newCard };
-  }
-    console.log(addCard);
-    console.log(cardData);
-  };
+  // const handleSubmit = e => {
+  //   e.preventDefault()
+  //   alert('You have added a card')
+  //   addCard({"user_name":"","numbers":"","expiry_date":"","cvc":""})
+     
+  //   }
 
 function clearNumber(value = "") {
   return value.replace(/\D+/g, "");
@@ -20,11 +16,11 @@ export function formatCreditCardNumber(value) {
     return value;
   }
 
-  const issuer = value;
+  const type = value;
   const clearValue = clearNumber(value);
   let nextValue;
 
-  switch (issuer) {
+  switch (type) {
     case "mastercard":
       nextValue = `${clearValue.slice(0, 4)} ${clearValue.slice(
         4,
@@ -61,8 +57,8 @@ export function formatCVC(value, prevValue, allValues = {}) {
   let maxLength = 3;
 
   if (allValues.number) {
-    const issuer = allValues.number;
-    console.log(issuer)
+    const type = allValues.number;
+    console.log(type)
   }
 
   return clearValue.slice(0, maxLength);

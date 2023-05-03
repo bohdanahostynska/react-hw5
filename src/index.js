@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import RouterApp from "./RouterApp";
 import "../src/App.css";
 import { BrowserRouter as Router } from "react-router-dom";
-import { DataContext } from "../src/components/CardsContext";
+import { DataContext } from "../src/context/CardsContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

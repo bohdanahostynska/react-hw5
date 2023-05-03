@@ -1,64 +1,63 @@
 import React from "react";
-import {AddNewCard } from "./AddNewCard";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import chip from "../assets/chip.png";
 import master_logo from "../assets/master_logo.png";
+import { CardsContext } from "../context/CardsContext";
 import {
   formatCreditCardNumber,
   formatCVC,
   formatExpirationDate,
-} from "./AddNewCard";
+} from "../helpers/functions";
 
-export default function CreditCard() {
+export const Card = ({numbers, user_name}) => {
+  return (
+    <>
+      <div className="card_wrapper">
+         <h3 className="card_title-new">My card</h3>
+        <div className="card_item_front">
+          <img className="image-clone" src={chip} alt="img-img" />
+          <img className="card_logo" src={master_logo} alt="img" />
+          <p className="card_number">{numbers}</p>
+          <p className="user_name">{user_name}</p> 
+        </div>
+      </div>
+    </>
+  );
+};
+
+export function Form() {
+
   const [cardData, setCardData] = useState({});
-
-  let issuer;
-
-  function handleCallback({ issuer }, isValid) {
-    if (isValid) {
-      setCardData({ issuer });
-    }
-  }
-
-  const handleInputFocus = ({ target }) => {
-    setCardData({
-      focused: target.name,
-    });
-  };
-
+  const { addCard } = useContext(CardsContext);
+  let type;
   const handleInputChange = ({ target }) => {
-    if (target.name === "number") {
+    if (target.name === "numbers") {
       target.value = formatCreditCardNumber(target.value);
     } else if (target.name === "expiry_date") {
       target.value = formatExpirationDate(target.value);
-    } else if (target.name === "cvc") {
+    } else if (target.name === "cvv") {
       target.value = formatCVC(target.value);
     }
 
-    setCardData({ [target.name]: target.value });
+    setCardData((prev) => ({ ...prev, [target.name]: target.value }));
   };
 
- const handleSubmit = e => {
-    e.preventDefault()
-    alert('You have added a card')
-   
+  const handleSubmit = (e) => {
+    e.preventDefault();
+     addCard({ user_name: "", numbers: "", expiry_date: "", cvv: "" });   
+     
   }
+
   return (
-    <>
-      {" "}
-      <div className="card_wrapper">
-        <h3 className="card_title-new">Create a new card</h3>
-        <div className="card_item_front-mod">
-        <img className="image-clone" src={chip} alt="img-img" />
-        <img className="card_logo-clone" src={master_logo} alt="img" /> </div>
-        <AddNewCard
+    <div>
+      <>
+      < Card
           data={cardData}
-          number={cardData.number}
+          numbers={cardData.numbers}
           user_name={cardData.user_name}
           expiry_date={cardData.expiry_date}
           cvv={cardData.cvc}
-          callback={handleCallback}
-        />
+          />
         <form onSubmit={handleSubmit}>
           <div className="card-form">
             <small>Full name:</small>
@@ -71,7 +70,6 @@ export default function CreditCard() {
               pattern="[a-z A-Z-]+"
               required
               onChange={handleInputChange}
-              onFocus={handleInputFocus}
             />
           </div>
           <div className="card-form">
@@ -79,14 +77,13 @@ export default function CreditCard() {
 
             <input
               type="tel"
-              name="number"
+              name="numbers"
               className="card-control"
               placeholder="00000000000000"
               pattern="[\d| ]{16,22}"
-              maxLength="19"
+              maxLength="16"
               required
               onChange={handleInputChange}
-              onFocus={handleInputFocus}
             />
           </div>
 
@@ -101,7 +98,6 @@ export default function CreditCard() {
               pattern="\d\d/\d\d"
               required
               onChange={handleInputChange}
-              onFocus={handleInputFocus}
             />
           </div>
           <div className="card-form">
@@ -115,15 +111,17 @@ export default function CreditCard() {
               pattern="\d{3}"
               required
               onChange={handleInputChange}
-              onFocus={handleInputFocus}
             />
           </div>
-          <input type="hidden" name="issuer" value={issuer} />
+          <input type="hidden" name="type" value={type} />
           <div className="card-actions">
-            <button className="form-button" value="Update">Add card</button>
+            <button className="form-button" value="Update">
+              Add card
+            </button>
           </div>
         </form>
-      </div>
-    </>
+      </>
+    </div>
   );
 }
+export default Form;

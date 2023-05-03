@@ -2,12 +2,16 @@ import { Routes, Route, NavLink } from "react-router-dom";
 import YourCards from "./components/YourCards";
 import { NextButton } from "./components/Button";
 import { PrevButton } from "./components/Button";
-import { AddNewCard } from "./components/AddNewCard";
-import CreditCard from "./components/CreditCard";
+import FormPage from "./pages/FormPage"
+// import { Card } from "./components/Card";
+// import Form from "./components/Form";
+// import {Statistic} from "./components/Statistic"
+
 const links = [
-  { id: "1", link: "/", name:"CreditCard" },
+  { id: "1", link: "/", name:"FormPage" },
   { id: "2", link: "your_cards", name: "YourCards" ,},
-  { id: "3", link: "add_new_card", name: "AddNewCard" },
+  // { id: "3", link: "card", name: "Card" },
+  { id: "4", link: "statistic", name: "Statistic" },
 ];
 
 const RouterApp = () => {
@@ -34,9 +38,10 @@ const RouterApp = () => {
           <PrevButton />
         </ul>
         <Routes>
-          <Route path="/" element={<CreditCard  />} />
-          <Route path="add_new_card" element={< AddNewCard />} />
+          <Route path="/" element={<FormPage/>} />
+          {/* <Route path="card" element={< Card />} /> */}
           <Route path="your_cards" element={<YourCards />} />
+          {/* <Route path="statistic" element={<Statistic />} /> */}
         </Routes>
       </nav>
     </div>

@@ -3,7 +3,9 @@ import React, { useEffect, useState, createContext } from "react";
 export const CardsContext = createContext();
 
 export const DataContext = (props) => {
-  const [data, setData] = useState([]);
+
+   const [cardData, setCardData] = useState([]);
+
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -14,16 +16,16 @@ export const DataContext = (props) => {
         }
         throw new Error({ message: "Something went wrong..." });
       })
-      .then((json) => setData(json))
+      .then((json) => setCardData(json))
       .catch((error) => setError(error.message));
   }, []);
 
   const addCard = (newCard) => {
-    setData((prev) => [...prev, newCard]);
+    setCardData((prev) => [...prev, newCard]);
   };
 console.log(addCard);
   return (
-    <CardsContext.Provider value={{ data, error }}>
+    <CardsContext.Provider value={{cardData, error, addCard }}>
       {props.children}
     </CardsContext.Provider>
   );

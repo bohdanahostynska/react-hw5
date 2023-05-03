@@ -1,58 +1,49 @@
-import React from "react";
+import React, { useContext } from "react";
 import chip from "../assets/chip.png";
 import master_logo from "../assets/master_logo.png";
 import plus from "../assets/plus 1.png";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { CardsContext } from "../context/CardsContext";
 
-export const YourCards = () => {
-  const [cardData, setCardData] = useState([]);
+export function YourCards() {
 
-  useEffect(() => {
-    fetch("https://my.api.mockaroo.com/cards/123.json?key=778301b0")
-      .then((res) => res.json())
-      .then((res) => setCardData([res]));
-  }, []);
-
-  useEffect(() => {
-    console.log({ cardData });
-  }, [cardData]);
+  const { cardData } = useContext(CardsContext);
+const { user_name ,data} = cardData;
 
   return (
     <>
       <div className="card_container">
+      <div className="card_wrapper">
+      
         <h2>Your Cards</h2>
-        <Link to={"/credit_card"}>
+        {data?.map(({  card, id, statistic }) => { 
+        return (   
+          <div className="card_case">
+            <div className="card_item_front"key={card.id}>
+              <img className="image" src={chip} alt="img-img" />
+              <p className="card_number">{card.numbers}</p>
+              <p className="user_name">{user_name}</p>
+              <div className="card_info">
+                <img className="card_logo" src={master_logo} alt="img" />
+              </div>
+            </div>
+            <div className="card_item_back">
+              <div className="card_info-second">
+                <p className="card_date">{card.expiry_date}</p>
+                <p className="card_cvc">{card.cvv}</p>
+              </div>
+            </div>
+          </div>
+        )})}
+         </div>
+        <Link to={"/"}>
           <button className="button_plus">
             <img className="plus" src={plus} alt="img" />
           </button>
         </Link>
-        <div className="card_wrapper">
-        {cardData && cardData.map((data,card) => {
-            console.log(data);
-            return (
-              <div className="card_case">
-                <div className="card_item_front" key={card.id}>
-                  <img className="image" src={chip} alt="img-img" />
-                  <p className="card_number">{data.numbers}</p>
-                  <div className="card_info">
-                    <p className="user_name">{data.user_name}</p>
-                    <img className="card_logo" src={master_logo} alt="img" />
-                  </div>
-                </div>
-                <div className="card_item_back">
-                  <div className="card_info-second">
-                    <p className="card_date">{card.expiry_date}</p>
-                    <p className="card_cvc">{card.cvv}</p>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
       </div>
-    </div>
-        </>
+    </>
   );
-};
+}
 
 export default YourCards;
