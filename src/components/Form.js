@@ -10,7 +10,7 @@ import {
 } from "../helpers/functions";
 
 
-export const Card = ({user_name,cvv, expiry_date,numbers}) => {
+export const Card = ({user_name,cvv, expiry_date,numbers,date}) => {
   return (
     <>
         <div className="card_container">
@@ -24,8 +24,12 @@ export const Card = ({user_name,cvv, expiry_date,numbers}) => {
           <p className="user_name">{user_name}</p> 
           </div>
           <div className="sides-back">
-          <p className="card_cvv">{cvv}</p>
-          <p className="card_expiry_date">{expiry_date}</p>
+          <p className="card_number">{cvv}</p>
+          <p className="card_number">{expiry_date}</p>
+          <p className="card_date">{date}</p>
+                      {/* <p className="card_place">{place}</p>
+                      <p className="card_expense">{expense}</p>
+                      <p className="card_currency">{currency}</p> */}
           </div>
         </div>
       </div>
@@ -51,21 +55,20 @@ export function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addNewCard([{ user_name: "", cvv:'', expiry_date: "", numbers: "" }]);
+    addNewCard([{ user_name: "",cvv:'',expiry_date: "",numbers: "" }]);
   };
 
 
   return (
-    <div>
+    <div className="form_container">
       <>
         <Card
            data={cardData}
-           numbers={cardData.numbers}
           user_name={cardData.user_name} 
+          numbers={cardData.numbers}
           cvv={cardData.cvv}
           expiry_date={cardData.expiry_date}
-
-        
+          statistic={cardData.statistic}       
         />
         <form onSubmit={handleSubmit}>
           <div className="card-form">

@@ -13,7 +13,10 @@ body {
   flex-direction: row;
   position: relative;
 }
-
+.form_container{
+  max-width: 1400px;
+  margin: 0 auto;
+}
 .header-ul {
   display: flex;
   flex-direction: row;
@@ -36,7 +39,7 @@ body {
 .card_wrapper {
   display: grid;
   gap: 100px;
-  grid-template-columns: repeat(3, 3fr);
+  grid-template-columns: repeat(4, 2fr);
 }
 .card_case {
   position: relative;
@@ -117,7 +120,6 @@ body {
   color: rgb(177, 36, 36);
   width: 320px;
   font-size: 20px;
-
 }
 .user_name {
   color: azure;
@@ -144,9 +146,8 @@ body {
   z-index: 0;
   left: 0%;
   padding-bottom: 20px;
-  
-  margin-bottom: 50px;
 
+  margin-bottom: 50px;
 }
 
 .card_place {
@@ -167,7 +168,7 @@ body {
   margin-top: 50px;
   margin-right: 100px;
   align-items: start;
-margin-bottom: 20px;
+  margin-bottom: 20px;
   color: rgb(126, 37, 37);
 }
 .card_date {
@@ -214,8 +215,8 @@ margin-bottom: 20px;
 }
 
 .card-control {
-   max-width: 500px;
-  background-color: rgb(164, 164, 185); 
+  max-width: 500px;
+  background-color: rgb(164, 164, 185);
   border-radius: 10px;
   padding: 8px;
 }
@@ -246,15 +247,14 @@ margin-bottom: 20px;
   perspective: 1000px;
   transition: 1s;
 }
-.show_card_details{
-  background-color: rgb(196, 196, 157);
+.show_card_details {
+  /* background-color: rgb(196, 196, 157); */
   z-index: -4;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
   width: 330px;
- 
 }
-.icons-bar{
+.icons-bar {
   position: relative;
   z-index: -2;
   padding: 90px 15px 10px;
@@ -263,34 +263,82 @@ margin-bottom: 20px;
   margin: 2px 0 0 -40px;
   border-radius: 20px;
   font-family: "Segoe UI";
-  background-color: rgb(164, 164, 185); 
+  background-color: rgb(164, 164, 185);
   overflow: hidden;
   z-index: 2;
   margin-left: 0;
-
 }
 
-.eye{ 
-  
+/* .eye {
   position: absolute;
   top: 25px;
-  left: 47px; 
+  left: 47px;
   border: none;
-}
-.man{ 
-  
+} */
+.man {
   position: absolute;
   top: 25px;
   left: 40%;
   background: transparent;
   border: none;
 }
-.flip{ 
-  
+.flip {
   position: absolute;
   top: 25px;
   left: 70%;
   background: transparent;
   border: none;
 }
-
+.show_card_details {
+  position: absolute;
+  left: 1px;
+  top: 150px;
+  z-index: -1;
+  width: 330px;
+  height: 220px;
+  border-radius: 20px;
+  background: #c2d6f2;
+  transition: 0.5s;
+  ::before {
+    position: absolute;
+    content: "";
+    top: 72px;
+    left: 110px;
+    width: 2px;
+    height: 30px;
+    background-color: #111;
+  }
+  ::after {
+    position: absolute;
+    content: "";
+    top: 72px;
+    left: 200px;
+    width: 2px;
+    height: 30px;
+    background-color: #111;
+  }
+}
+.view_eye{
+  position: absolute;
+  top: 35px;
+  left: 47px;
+  border: none;
+}
+.view_eye_crossed{
+  position: absolute;
+  top: 35px;
+  left: 47px;
+  border: none;
+}
+.viewStatsElemBtn{ 
+  position: absolute;
+  top: 75px;
+  left: 134px;
+  background: transparent;
+  border: none;
+}
+.info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
