@@ -3,6 +3,7 @@ import YourCards from "./components/YourCards";
 import { NextButton } from "./components/Button";
 import { PrevButton } from "./components/Button";
 import FormPage from "./pages/FormPage";
+import Statistic from "./components/Statistic"
 
 const links = [
   { id: "1", link: "/", name: "FormPage" },
@@ -36,6 +37,7 @@ const RouterApp = () => {
         <Routes>
           <Route path="/" element={<FormPage />} />
           <Route path="your_cards" element={<YourCards />} />
+           <Route path="statistic" element={<Statistic/>} /> 
         </Routes>
       </nav>
     </div>

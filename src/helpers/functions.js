@@ -11,6 +11,7 @@ export function formatCreditCardNumber(value) {
   const clearValue = clearNumber(value);
   let nextValue;
 
+
   switch (type) {
     case "mastercard":
       nextValue = `${clearValue.slice(0, 4)} ${clearValue.slice(
@@ -33,6 +34,7 @@ export function formatCreditCardNumber(value) {
   }
 
   return nextValue.trim();
+
 }
 export function formatExpirationDate(value) {
   const clearValue = clearNumber(value);

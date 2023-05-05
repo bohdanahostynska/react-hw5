@@ -15,16 +15,17 @@ export const DataContext = (props) => {
         }
         throw new Error({ message: "Something went wrong..." });
       })
-      .then((json) => setCardData(json))
+      .then((json) => setCardData([json]))
       .catch((error) => setError(error.message));
   }, []);
 
-  const addCard = (newCard) => {
-    setCardData((prev) => [...prev, newCard]);
+  const addNewCard = (newCard) => {
+    setCardData((prev) => [ newCard,...prev]);
+    console.log(newCard)
   };
-  console.log(addCard);
+  console.log(addNewCard);
   return (
-    <CardsContext.Provider value={{ cardData, error, addCard }}>
+    <CardsContext.Provider value={{ cardData, error, addNewCard}}>
       {props.children}
     </CardsContext.Provider>
   );

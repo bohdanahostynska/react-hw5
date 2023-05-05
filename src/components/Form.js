@@ -9,52 +9,63 @@ import {
   formatExpirationDate,
 } from "../helpers/functions";
 
-export const Card = ({ numbers, user_name }) => {
+
+export const Card = ({user_name,cvv, expiry_date,numbers}) => {
   return (
     <>
-      <div className="card_wrapper">
-        <h3 className="card_title-new">My card</h3>
-        <div className="card_item_front">
+        <div className="card_container">
+        <div className="card_wrapper">
+        <div className="card_case">
+          <div className="sides" >   
+          <div className="sides-front">
           <img className="image-clone" src={chip} alt="img-img" />
-          <img className="card_logo" src={master_logo} alt="img" />
+          <img className="card_logo" src={master_logo} alt="img" />       
           <p className="card_number">{numbers}</p>
-          <p className="user_name">{user_name}</p>
+          <p className="user_name">{user_name}</p> 
+          </div>
+          <div className="sides-back">
+          <p className="card_cvv">{cvv}</p>
+          <p className="card_expiry_date">{expiry_date}</p>
+          </div>
         </div>
       </div>
+      </div></div>
     </>
   );
 };
 
 export function Form() {
   const [cardData, setCardData] = useState({});
-  const { addCard } = useContext(CardsContext);
+  const { addNewCard } = useContext(CardsContext);
   let type;
   const handleInputChange = ({ target }) => {
-    if (target.name === "numbers") {
-      target.value = formatCreditCardNumber(target.value);
-    } else if (target.name === "expiry_date") {
-      target.value = formatExpirationDate(target.value);
-    } else if (target.name === "cvv") {
+    if (target.name === "cvv") {
       target.value = formatCVC(target.value);
+    }else if (target.name === "expiry_date") {
+      target.value = formatExpirationDate(target.value);
+    } else if (target.name === "numbers"){
+      target.value = formatCreditCardNumber(target.value);
     }
-
-    setCardData((prev) => ({ ...prev, [target.name]: target.value }));
+    setCardData((prev) => ({ ...prev, [target.name]: target.value } ));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addCard({ user_name: "", numbers: "", expiry_date: "", cvv: "" });
+    addNewCard([{ user_name: "",cvv:'',expiry_date: "",numbers: "" }]);
   };
+
 
   return (
     <div>
       <>
         <Card
-          data={cardData}
+           data={cardData}
+          user_name={cardData.user_name} 
           numbers={cardData.numbers}
-          user_name={cardData.user_name}
+          cvv={cardData.cvv}
           expiry_date={cardData.expiry_date}
-          cvv={cardData.cvc}
+
+        
         />
         <form onSubmit={handleSubmit}>
           <div className="card-form">
