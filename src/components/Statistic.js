@@ -8,28 +8,27 @@ import YourCards from "./YourCards";
 
 export function Statistic({date,place,expense,currency}) {
   const [cardData, setCardData] = useState({});
-  const {data }=cardData
+  // const {data }=cardData
 
     return (
         <>
-        <div className="card_container">
+        {/* <div className="card_container">
         <div className="card_wrapper">
-          <div className="card_statistic">
-          <div className="sides" >
-            <div className="sides_mod">
-              <img className="image-clone" src={chip} alt="img-img" />
-              <img className="card_logo" src={master_logo} alt="img" />
-              <div className="card_details">
-                                <p className="card_date">{date}</p>           
-                              <p className="card_place">{place}</p>
-                              <p className="card_expense">{expense}</p>
-                              <p className="card_currency">{currency}</p>
-                              </div>   </div>
-            </div>
+        <div className="card_case">
+          <div className="sides" >   
+          <div className="sides-front">
+          <img className="image-clone" src={chip} alt="img-img" />
+          <img className="card_logo" src={master_logo} alt="img" />       
+          <p className="card_number">{numbers}</p>
+          <p className="user_name">{user_name}</p> 
           </div>
-          <div className="menu_stat"></div>
+          <div className="sides-back">
+          <p className="card_cvv">{cvv}</p>
+          <p className="card_expiry_date">{expiry_date}</p>
           </div>
-          </div>
+        </div>
+      </div>
+      </div></div> */}
         </>
       );
 }

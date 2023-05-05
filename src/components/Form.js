@@ -51,7 +51,7 @@ export function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addNewCard([{ user_name: "",cvv:'',expiry_date: "",numbers: "" }]);
+    addNewCard([{ user_name: "", cvv:'', expiry_date: "", numbers: "" }]);
   };
 
 
@@ -60,8 +60,8 @@ export function Form() {
       <>
         <Card
            data={cardData}
+           numbers={cardData.numbers}
           user_name={cardData.user_name} 
-          numbers={cardData.numbers}
           cvv={cardData.cvv}
           expiry_date={cardData.expiry_date}
 
