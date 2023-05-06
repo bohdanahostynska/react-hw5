@@ -109,8 +109,8 @@ body {
 .sides-back {
   position: absolute;
   left: 0%;
-  top: -10%;
-  background-image: url(../src/assets/mastercard_back.png);
+   top: -10%;
+  background-image: url(../src/assets/mastercard_back.png); 
   box-shadow: 2px 4px 8px rgb(100, 100, 171);
   border-radius: 30px;
   padding: 60px 40px;
@@ -187,7 +187,6 @@ body {
   color: white;
 }
 .card_date {
-  /* font-size: 20px; */
   color: rgb(31, 29, 29);
   margin: 30px 0;
   width: 70px;

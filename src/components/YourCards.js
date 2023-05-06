@@ -43,7 +43,11 @@ export function YourCards() {
     return maskedDigits;
   };
 
-  const handleShowOptions = () => {
+  const handleShowOptions = (id) => {
+    if (showOptions === id) {
+      setShowOptions("");
+      return;
+    }
     setShowOptions((prevState) => !prevState);
   };
 
