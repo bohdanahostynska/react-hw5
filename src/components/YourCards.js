@@ -29,9 +29,7 @@ export function YourCards() {
   const [eyeOpen, setEyeOpen] = useState("");
   const [showOptions, setShowOptions] = useState(false);
 
-  // const slicedCardNumber = handleCardNumber(numbers);
-
-  const maskCardNumber = (numbers) => {
+  const maskNumbers = (numbers) => {
     const MASK = "****";
     const groups = [];
     for (let j = 1; j < 4; j++) {
@@ -93,13 +91,11 @@ export function YourCards() {
             return data?.map(({ card, statistic }) => (
               <div className="card_case" key={data.id}>
                 <div
-                  className={`sides ${isFlip === card.number ? "active" : ""}`}
+                  className={`sides ${isFlip === card.numbers ? "active" : ""}`}
                 >
                   <div className="sides-front" onClick={handleShowOptions}>
                     <img className="image" src={chip} alt="img" />
-                    <p className="card_number">
-                      {maskCardNumber(card.numbers)}
-                    </p>
+                    <p className="card_number">{maskNumbers(card.numbers)}</p>
                     <p className="user_name">{user_name}</p>
                     <div className="card_info">
                       <img className="card_logo" src={master_logo} alt="img" />
