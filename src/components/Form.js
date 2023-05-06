@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useContext } from "react";
-import chip from "../assets/chip.png";
-import master_logo from "../assets/master_logo.png";
+
 import { CardsContext } from "../context/CardsContext";
 import {
   formatCreditCardNumber,
@@ -9,66 +8,42 @@ import {
   formatExpirationDate,
 } from "../helpers/functions";
 
-
-export const Card = ({user_name,cvv, expiry_date,numbers,date}) => {
-  return (
-    <>
-        <div className="card_container">
-        <div className="card_wrapper">
-        <div className="card_case">
-          <div className="sides" >   
-          <div className="sides-front">
-          <img className="image-clone" src={chip} alt="img-img" />
-          <img className="card_logo" src={master_logo} alt="img" />       
-          <p className="card_number">{numbers}</p>
-          <p className="user_name">{user_name}</p> 
-          </div>
-          <div className="sides-back">
-          <p className="card_number">{cvv}</p>
-          <p className="card_number">{expiry_date}</p>
-          <p className="card_date">{date}</p>
-                      {/* <p className="card_place">{place}</p>
-                      <p className="card_expense">{expense}</p>
-                      <p className="card_currency">{currency}</p> */}
-          </div>
-        </div>
-      </div>
-      </div></div>
-    </>
-  );
-};
+import Card from "./Card";
+import { useNavigate } from "react-router-dom";
 
 export function Form() {
+  const nav = useNavigate();
   const [cardData, setCardData] = useState({});
   const { addNewCard } = useContext(CardsContext);
   let type;
+
   const handleInputChange = ({ target }) => {
     if (target.name === "cvv") {
       target.value = formatCVC(target.value);
-    }else if (target.name === "expiry_date") {
+    } else if (target.name === "expiry_date") {
       target.value = formatExpirationDate(target.value);
-    } else if (target.name === "numbers"){
+    } else if (target.name === "numbers") {
       target.value = formatCreditCardNumber(target.value);
     }
-    setCardData((prev) => ({ ...prev, [target.name]: target.value } ));
+    setCardData((prev) => ({ ...prev, [target.name]: target.value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addNewCard([{ user_name: "",cvv:'',expiry_date: "",numbers: "" }]);
+    addNewCard(cardData);
+    setCardData({});
+    nav("/your_cards");
   };
-
-
   return (
     <div className="form_container">
       <>
         <Card
-           data={cardData}
-          user_name={cardData.user_name} 
+          data={cardData}
+          user_name={cardData.user_name}
           numbers={cardData.numbers}
           cvv={cardData.cvv}
           expiry_date={cardData.expiry_date}
-          statistic={cardData.statistic}       
+          statistic={cardData.statistic}
         />
         <form onSubmit={handleSubmit}>
           <div className="card-form">
@@ -93,7 +68,7 @@ export function Form() {
               className="card-control"
               placeholder="00000000000000"
               pattern="[\d| ]{16,22}"
-              maxLength="16"
+              maxLength="19"
               required
               onChange={handleInputChange}
             />
@@ -121,6 +96,7 @@ export function Form() {
               className="card-control"
               placeholder="123"
               pattern="\d{3}"
+              maxLength="3"
               required
               onChange={handleInputChange}
             />

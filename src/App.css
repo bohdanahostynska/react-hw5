@@ -104,8 +104,8 @@ body {
   transform: rotateY(180deg);
 }
 
-.sides:hover {
-  transform: rotateY(360deg);
+.sides.active {
+  transform: rotateY(180deg);
 }
 
 .card_number {
