@@ -1,14 +1,10 @@
 import { Routes, Route, NavLink } from "react-router-dom";
 import YourCards from "./components/YourCards";
-import { NextButton } from "./components/Button";
-import { PrevButton } from "./components/Button";
 import FormPage from "./pages/FormPage";
-import Statistic from "./components/Statistic"
 
 const links = [
   { id: "1", link: "/", name: "FormPage" },
   { id: "2", link: "your_cards", name: "YourCards" },
-  { id: "3", link: "statistic", name: "Statistic" },
 ];
 
 const RouterApp = () => {
@@ -16,7 +12,6 @@ const RouterApp = () => {
     <div className="container">
       <nav className="header-nav">
         <ul className="header-ul">
-          <NextButton />
           {links.map(({ id, link, name }) => (
             <li key={id} className="nav_item">
               <NavLink
@@ -32,12 +27,10 @@ const RouterApp = () => {
               </NavLink>
             </li>
           ))}
-          <PrevButton />
         </ul>
         <Routes>
           <Route path="/" element={<FormPage />} />
           <Route path="your_cards" element={<YourCards />} />
-           <Route path="statistic" element={<Statistic/>} /> 
         </Routes>
       </nav>
     </div>

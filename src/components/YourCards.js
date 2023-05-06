@@ -17,7 +17,7 @@ export const myCard = {
   user_name: "",
   data: [
     {
-      card: { numbers: "", type: "", cvv: "" },
+      card: { numbers: "", type: "", cvv: "", expiry_date: "" },
       statistic: [],
     },
   ],
@@ -52,7 +52,6 @@ export function YourCards() {
       setShowStatistic("");
       return;
     }
-
     setShowStatistic(id);
   };
 
@@ -61,7 +60,6 @@ export function YourCards() {
       setEyeOpen("");
       return;
     }
-
     setEyeOpen(id);
   };
 
@@ -70,23 +68,14 @@ export function YourCards() {
       setIsFlip("");
       return;
     }
-
     setIsFlip(id);
   };
 
   return (
     <>
+      <h3>Your cards</h3>
       <div className="card_container">
         <div className="card_wrapper">
-          <div>
-            <h3>Your cards</h3>
-            <Link to={"/"}>
-              <button className="button_plus">
-                <img className="plus" src={plus} alt="img" />
-              </button>
-            </Link>
-          </div>
-
           {cardData?.map(({ data, user_name }) => {
             return data?.map(({ card, statistic }) => (
               <div className="card_case" key={data.id}>
@@ -148,6 +137,11 @@ export function YourCards() {
             ));
           })}
         </div>
+        <Link to={"/"}>
+          <button className="button_plus">
+            <img className="plus" src={plus} alt="img" />
+          </button>
+        </Link>
       </div>
     </>
   );

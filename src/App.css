@@ -5,22 +5,38 @@ body {
   font-family: Montserrat, sans-serif;
 }
 
+.header-ul {
+  max-width: 800px;
+  margin: 0 auto;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-around;
+  padding-top: 20px;
+  background-color: #b19898;
+  box-shadow: 2px 4px 8px rgb(100, 100, 171);
+  border-radius: 8px;
+  text-decoration: none;
+  color: #111;
+}
 .card_container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 100px;
+  padding: 100px 100px 0 100px;
   display: flex;
   flex-direction: row;
   position: relative;
 }
-.form_container{
+.container {
   max-width: 1400px;
   margin: 0 auto;
+  padding: 50px;
+  align-items: center;
 }
-.header-ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+.form_container {
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .card_move {
@@ -34,19 +50,23 @@ body {
   border: none;
   background-color: transparent;
   border-radius: 4px;
+  display: block;
+  position: absolute;
+  top: -50px;
+  right: 1px;
 }
 
 .card_wrapper {
   display: grid;
   gap: 100px;
-  grid-template-columns: repeat(4, 2fr);
+  grid-template-columns: repeat(3, 4fr);
+ 
 }
+
 .card_case {
   position: relative;
-  margin-right: 50px;
   width: 280px;
   height: 180px;
-  margin-bottom: 20px;
   border-radius: 40px;
   font-family: "Segoe UI";
   perspective: 1000px;
@@ -115,12 +135,7 @@ body {
   width: 320px;
   font-size: 20px;
 }
-.card_date {
-  display: inline-block;
-  color: rgb(177, 36, 36);
-  width: 320px;
-  font-size: 20px;
-}
+
 .user_name {
   color: azure;
   margin-bottom: 5px;
@@ -153,7 +168,7 @@ body {
 .card_place {
   display: inline-block;
   max-width: 100px;
-  margin: 40px 40px 40px 30px;
+  margin: 30px 40px 40px 25px;
 }
 .card_expense {
   margin-top: 30px;
@@ -165,21 +180,22 @@ body {
   margin-bottom: 30px;
 }
 .card_expiry-date {
-  margin-top: 50px;
+  margin-top: 90px;
   margin-right: 100px;
   align-items: start;
-  margin-bottom: 20px;
-  color: rgb(126, 37, 37);
+
+  color: white;
 }
 .card_date {
-  font-size: 20px;
+  /* font-size: 20px; */
   color: rgb(31, 29, 29);
   margin: 30px 0;
+  width: 70px;
 }
 
 .card_cvc {
-  margin-top: 100px;
-  color: rgb(185, 37, 37);
+  margin-top: 90px;
+  color: white;
 }
 
 .image {
@@ -247,16 +263,10 @@ body {
   perspective: 1000px;
   transition: 1s;
 }
-.show_card_details {
-  /* background-color: rgb(196, 196, 157); */
-  z-index: -4;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-  width: 330px;
-}
+
 .icons-bar {
   position: relative;
-  z-index: -2;
+  z-index: -8;
   padding: 90px 15px 10px;
   width: 300px;
   height: auto;
@@ -265,16 +275,8 @@ body {
   font-family: "Segoe UI";
   background-color: rgb(164, 164, 185);
   overflow: hidden;
-  z-index: 2;
   margin-left: 0;
 }
-
-/* .eye {
-  position: absolute;
-  top: 25px;
-  left: 47px;
-  border: none;
-} */
 .man {
   position: absolute;
   top: 25px;
@@ -297,8 +299,9 @@ body {
   width: 330px;
   height: 220px;
   border-radius: 20px;
-  background: #c2d6f2;
+
   transition: 0.5s;
+
   ::before {
     position: absolute;
     content: "";
@@ -318,27 +321,34 @@ body {
     background-color: #111;
   }
 }
-.view_eye{
+.view_eye {
   position: absolute;
   top: 35px;
   left: 47px;
   border: none;
 }
-.view_eye_crossed{
+.view_eye_crossed {
   position: absolute;
   top: 35px;
   left: 47px;
   border: none;
 }
-.viewStatsElemBtn{ 
+.viewStatsElemBtn {
   position: absolute;
   top: 75px;
   left: 134px;
   background: transparent;
   border: none;
 }
-.info{
+.info {
+  position: absolute;
+  width: 330px;
+  height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  background: #c2d6f2;
+  z-index: -5;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
 }
