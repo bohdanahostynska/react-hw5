@@ -334,14 +334,14 @@ body {
   }
 }
 
-.view_eye {
+.eye {
   position: absolute;
   top: 35px;
   left: 47px;
   border: none;
 }
 
-.view_eye_crossed {
+.eye_crossed {
   position: absolute;
   top: 35px;
   left: 47px;
