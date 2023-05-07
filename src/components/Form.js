@@ -66,7 +66,7 @@ export function Form() {
               type="tel"
               name="numbers"
               className="card-control"
-              placeholder="00000000000000"
+              placeholder="0000000000000000"
               pattern="[\d| ]{16,22}"
               maxLength="19"
               required

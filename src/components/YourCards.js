@@ -88,7 +88,9 @@ export function YourCards() {
                 >
                   <div className="sides-front" onClick={handleShowOptions}>
                     <img className="image" src={chip} alt="img" />
-                    <p className="card_number">{maskNumbers(card.numbers)}</p>
+                    <p className="card_number">
+                      {eyeOpen ? card.numbers : maskNumbers(card.numbers)}
+                    </p>
                     <p className="user_name">{user_name}</p>
                     <div className="card_info">
                       <img className="card_logo" src={master_logo} alt="img" />
@@ -107,7 +109,7 @@ export function YourCards() {
                       className="eye"
                       onClick={() => handleEyeOpen(card.numbers)}
                       alt="img-eye"
-                      src={card.numbers === eyeOpen ? eye : eye_crossed}
+                      src={eyeOpen === card.numbers ? eye : eye_crossed}
                     />
                     <img
                       className="man"
