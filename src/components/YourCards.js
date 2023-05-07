@@ -2,8 +2,8 @@ import React, { useContext, useState } from "react";
 import chip from "../assets/chip.png";
 import master_logo from "../assets/master_logo.png";
 import plus from "../assets/plus 1.png";
-import eye from "../assets/view_eye.png";
-import eye_crossed from "../assets/view_eye_crossed.png";
+import eye from "../assets/eye.png";
+import eye_crossed from "../assets/eye_crossed.png";
 import man from "../assets/man 1.svg";
 import flip from "../assets/flip 1.svg";
 import { Link } from "react-router-dom";
@@ -104,7 +104,7 @@ export function YourCards() {
                 <div className="show_card_details">
                   <div className="icons-bar">
                     <img
-                      className="view_eye"
+                      className="eye"
                       onClick={() => handleEyeOpen(card.numbers)}
                       alt="img-eye"
                       src={card.numbers === eyeOpen ? eye : eye_crossed}
