@@ -68,21 +68,21 @@ body {
 .card_case {
   position: relative;
   width: 280px;
-  height: 180px;
+  height: 190px;
   border-radius: 40px;
   font-family: "Segoe UI";
   perspective: 1000px;
   transition: 1s;
   background-color: transparent;
-  margin-bottom: 250px;
+  margin-bottom: 50px;
 }
 
 .sides {
   display: inline-block;
   box-shadow: 2px 4px 8px rgb(100, 100, 171);
-  width: 100%;
+  width: 320px;
   height: 100%;
-  left: 0;
+  left: 11%;
   top: 0;
   display: flex;
   justify-content: center;
@@ -93,36 +93,30 @@ body {
 
 .sides-front {
   position: absolute;
-  left: 0%;
-  top: -10%;
+  left: -3%;
+  top: -5%;
   display: inline-block;
   background-image: url(../src/assets/mastercard_front.png);
   box-shadow: 2px 4px 8px rgb(100, 100, 171);
   border-radius: 30px;
   padding: 60px 40px;
-  margin: 0 auto;
   max-width: 250px;
   height: 80px;
-  margin-bottom: 30px;
-  margin-right: 50px;
   z-index: 3;
 }
 
 .sides-back {
   position: absolute;
-  left: 0%;
-  top: -10%;
+  left: -3%;
+  top: -5%;
   background-image: url(../src/assets/mastercard_back.png);
   box-shadow: 2px 4px 8px rgb(100, 100, 171);
   border-radius: 30px;
   padding: 60px 40px;
-  margin: 0 auto;
   max-width: 250px;
   height: 80px;
-  margin-bottom: 30px;
-  margin-right: 50px;
+
   z-index: 2;
-  margin-bottom: 150px;
   transform: rotateY(180deg);
 }
 
@@ -134,7 +128,7 @@ body {
   display: inline-block;
   color: white;
   margin-top: 50px;
-  width: 320px;
+  width: 280px;
   font-size: 20px;
 }
 
@@ -274,16 +268,15 @@ body {
 
 .icons-bar {
   position: relative;
-  z-index: -8;
+  z-index: -5;
   padding: 90px 15px 10px;
   width: 300px;
   height: auto;
-  margin: 2px 0 0 -40px;
+  margin: 2px 0 0 -10px;
   border-radius: 20px;
   font-family: "Segoe UI";
   background-color: rgb(164, 164, 185);
   overflow: hidden;
-  margin-left: 0;
 }
 
 .man {
@@ -358,13 +351,15 @@ body {
 
 .info {
   position: absolute;
+  top: 40%;
+  left: -3%;
   width: 330px;
   height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   background: #c2d6f2;
-  z-index: -5;
+  z-index: -7;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
 }
